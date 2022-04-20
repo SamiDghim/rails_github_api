@@ -1,0 +1,26 @@
+<div class="col">
+  <div class="card h-100 animate__animated animate__fadeIn">
+    <div class="card-body">
+      <div class="card-img-top">
+          <%= render_avatar(repository.avatar_url, "small", "card-img-top") %>
+      </div>
+      <h5 class="card-title">
+        <%= link_to repository.full_name, repository.html_url %>
+      </h5>
+      <div class="card-text"><%= repository.description.truncate(150) %></div>
+    </div>
+    <div class="card-footer">
+      <%= render_badge(icon: "fas fa-code-fork") do %>
+        <%= human_pluralize(repository.forks_count) %>
+      <% end if repository.forks_count.positive? %>
+
+      <%= render_badge(icon: "fas fa-star") do %>
+        <%= human_pluralize(repository.stargazers_count) %>
+      <% end if repository.stargazers_count.positive? %>
+
+      <%= render_badge(icon: "fas fa-eye") do %>
+          <%= human_pluralize(repository.watchers_count) %>
+      <% end if repository.watchers_count.positive? %>
+    </div>
+  </div>
+</div>

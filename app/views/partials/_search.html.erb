@@ -1,0 +1,12 @@
+<nav aria-label="search">
+  <%= form_tag root_url, method: :get, enforce_utf8: false, class: "input-group mb-4" do %>
+    <div class="input-group">
+      <%= text_field_tag :search, params[:query], placeholder: placeholder, type: 'text', class: "form-control" %>
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-lg bg-primary">
+          <i class="fa fa-search"></i>
+          </button>
+      </div>
+    </div>
+  <% end %>
+</nav>
