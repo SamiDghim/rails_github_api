@@ -1,6 +1,9 @@
 <h1>Repositories#search</h1>
-<%= render '/partials/search' , placeholder: "Type your repository here ..." %>
 
-  <%= render_cards do |t| %>
-    <%= render partial: '/repositories/card', collection: @repositories, as: :repository %>
-  <% end %>
+
+<%= render '/partials/search' , placeholder: "Type your repository here ..." %>
+<%= paginate @paginatable_array %>
+
+<%= render_cards do |t| %>
+  <%= render partial: '/repositories/card', collection: @paginatable_array, as: :repository %>
+<% end %>

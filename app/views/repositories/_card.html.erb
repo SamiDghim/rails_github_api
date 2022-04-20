@@ -7,7 +7,16 @@
       <h5 class="card-title">
         <%= link_to repository.full_name, repository.html_url %>
       </h5>
-      <div class="card-text"><%= repository.description.truncate(150) %></div>
+      <h6 class="card-subtitle mt-2 mb-3 text-muted"><%= repository&.description&.truncate(150) %></h6>
+      
+      <% unless repository.topics.empty? %>
+        <% repository.topics.each do |topic| %>
+          <%= render_badge(icon: "fas fa-tag",color: "info") do %>
+            <%= topic %>
+          <% end %>
+        <% end %>      
+      <% end %>      
+
     </div>
     <div class="card-footer">
       <%= render_badge(icon: "fas fa-code-fork") do %>
